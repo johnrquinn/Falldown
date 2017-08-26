@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nmH-y1-yrD">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,24 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
     </dependencies>
     <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="iHM-SG-FVG">
+            <objects>
+                <controller id="nmH-y1-yrD">
+                    <items>
+                        <imageView height="52" alignment="left" id="j7n-KQ-CY2"/>
+                        <label alignment="left" text="High Score:" id="7ZA-Zx-V0O"/>
+                        <label alignment="left" text="Latest Score:" id="FNJ-80-7Dt"/>
+                        <button width="1" alignment="left" title="Button" id="ubD-ud-NOz">
+                            <connections>
+                                <segue destination="AgC-eL-Hgc" kind="modal" id="pPH-Kt-JcI"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-196" y="31"/>
+        </scene>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
@@ -29,6 +47,7 @@
                     </connections>
                 </controller>
             </objects>
+            <point key="canvasLocation" x="85" y="31"/>
         </scene>
     </scenes>
 </document>
