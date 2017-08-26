@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8A5770311F51017400ED3327 /* falldownBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5770301F51017400ED3327 /* falldownBall.png */; };
 		8A5770331F5103C100ED3327 /* horizontalLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5770321F5103C100ED3327 /* horizontalLine.png */; };
+		8A5770371F5121FC00ED3327 /* Falldown Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5770361F5121FC00ED3327 /* Falldown Logo.png */; };
 		8A84D9131F25851D0098C949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9121F25851D0098C949 /* AppDelegate.swift */; };
 		8A84D9151F25851D0098C949 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8A84D9141F25851D0098C949 /* GameScene.sks */; };
 		8A84D9171F25851D0098C949 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8A84D9161F25851D0098C949 /* Actions.sks */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		8A5770301F51017400ED3327 /* falldownBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falldownBall.png; sourceTree = "<group>"; };
 		8A5770321F5103C100ED3327 /* horizontalLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horizontalLine.png; sourceTree = SOURCE_ROOT; };
+		8A5770361F5121FC00ED3327 /* Falldown Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Falldown Logo.png"; sourceTree = SOURCE_ROOT; };
 		8A84D90F1F25851D0098C949 /* Falldown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Falldown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A84D9121F25851D0098C949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A84D9141F25851D0098C949 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				8A84D93D1F2585440098C949 /* InterfaceController.swift */,
 				8A84D9411F2585440098C949 /* GameScene.swift */,
 				8A84D9431F2585440098C949 /* ExtensionDelegate.swift */,
+				8A5770361F5121FC00ED3327 /* Falldown Logo.png */,
 				8A5770301F51017400ED3327 /* falldownBall.png */,
 				8A5770321F5103C100ED3327 /* horizontalLine.png */,
 				8A84D9451F2585440098C949 /* Assets.xcassets */,
@@ -306,6 +309,7 @@
 			files = (
 				8A5770331F5103C100ED3327 /* horizontalLine.png in Resources */,
 				8A84D9461F2585440098C949 /* Assets.xcassets in Resources */,
+				8A5770371F5121FC00ED3327 /* Falldown Logo.png in Resources */,
 				8A5770311F51017400ED3327 /* falldownBall.png in Resources */,
 				8A84D9401F2585440098C949 /* GameScene.sks in Resources */,
 			);

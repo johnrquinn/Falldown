@@ -14,10 +14,10 @@
             <objects>
                 <controller id="nmH-y1-yrD">
                     <items>
-                        <imageView height="52" alignment="left" id="j7n-KQ-CY2"/>
+                        <imageView height="52" alignment="left" image="Falldown Logo" id="j7n-KQ-CY2"/>
                         <label alignment="left" text="High Score:" id="7ZA-Zx-V0O"/>
                         <label alignment="left" text="Latest Score:" id="FNJ-80-7Dt"/>
-                        <button width="1" alignment="left" title="Button" id="ubD-ud-NOz">
+                        <button width="1" alignment="left" title="Play" id="ubD-ud-NOz">
                             <connections>
                                 <segue destination="AgC-eL-Hgc" kind="modal" id="pPH-Kt-JcI"/>
                             </connections>
@@ -39,6 +39,7 @@
                                         <action selector="handleSingleTap:" destination="AgC-eL-Hgc" id="5jk-oi-5mH"/>
                                     </connections>
                                 </tapGestureRecognizer>
+                                <longPressGestureRecognizer id="9S3-sk-qto"/>
                             </gestureRecognizers>
                         </spriteKitScene>
                     </items>
