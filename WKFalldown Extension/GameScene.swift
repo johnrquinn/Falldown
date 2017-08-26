@@ -205,7 +205,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let create = SKAction.run { self.createLine(at: CGPoint(x: CGFloat(arc4random_uniform(UInt32((Int(screenWidth) - self.halfGap) - self.halfGap)) + UInt32(self.halfGap)), y: self.frame.minY + 1), with: (CGFloat(self.gapWidth))) }
         
-        wait = SKAction.wait(forDuration: 0.8)
+        wait = SKAction.wait(forDuration: 0.7)
     
         createForever = SKAction.sequence([wait, create])
         
@@ -216,10 +216,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func createLine(at location: CGPoint, with gapWidth: CGFloat) {
         
         let lineTexture = SKTexture(imageNamed: "horizontalLine.png")
-        let line2Texture = SKTexture(imageNamed: "horizontalLine2.png")
         
         let line = SKSpriteNode(texture: lineTexture)
-        let line2 = SKSpriteNode(texture: line2Texture)
+        let line2 = SKSpriteNode(texture: lineTexture)
         
         let gap = SKSpriteNode()
     
@@ -324,32 +323,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             // CHANGE CASES BACK TO MAKE THE GAME LAST LONGER... NEED TO DETERMINE HOW LONG THE GAME should LAST
                 
-            // ALSO, KNOWN BUG, this doesn't work -- wait can change but createForever needs to be called at this point // TRYING TO GET LINES TO SPAWN EVENLY
-                
             case 0...10:
                 gapWidth = 50
                 halfGap = gapWidth / 2
-                wait = SKAction.wait(forDuration: 0.8)
-            case 10...20:
+                wait = SKAction.wait(forDuration: 0.7)
+            case 11...20:
                 gapWidth = 50
                 halfGap = gapWidth / 2
-                wait = SKAction.wait(forDuration: 0.8, withRange: 0.1)
+                wait = SKAction.wait(forDuration: 0.7, withRange: 0.1)
             case 21...30:
                 gapWidth = 45
                 halfGap = gapWidth / 2
-                wait = SKAction.wait(forDuration: 0.7, withRange: 0.1)
+                wait = SKAction.wait(forDuration: 0.6, withRange: 0.1)
             case 31...1000:
                 gapWidth = 42
                 halfGap = gapWidth / 2
-                wait = SKAction.wait(forDuration: 0.6, withRange: 0.1)
+                wait = SKAction.wait(forDuration: 0.5, withRange: 0.1)
             default:
                 gapWidth = 55
                 halfGap = gapWidth / 2
                 
             }
             
-            self.removeAllActions()
-            self.run(SKAction.repeatForever(createForever))
+            if score == 11 || score == 21 || score == 31 {
+                self.removeAllActions()
+                self.run(SKAction.repeatForever(createForever))
+            }
             
         }
         

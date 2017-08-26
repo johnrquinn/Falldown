@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A25683A1F425F18000AE7FE /* horizontalLine2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A2568391F425F18000AE7FE /* horizontalLine2.png */; };
-		8A6A6D0D1F4A7A8D00656800 /* falldownBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6A6D0C1F4A7A8D00656800 /* falldownBall.png */; };
+		8A5770311F51017400ED3327 /* falldownBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5770301F51017400ED3327 /* falldownBall.png */; };
+		8A5770331F5103C100ED3327 /* horizontalLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5770321F5103C100ED3327 /* horizontalLine.png */; };
 		8A84D9131F25851D0098C949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9121F25851D0098C949 /* AppDelegate.swift */; };
 		8A84D9151F25851D0098C949 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8A84D9141F25851D0098C949 /* GameScene.sks */; };
 		8A84D9171F25851D0098C949 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8A84D9161F25851D0098C949 /* Actions.sks */; };
@@ -26,7 +26,6 @@
 		8A84D9441F2585440098C949 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9431F2585440098C949 /* ExtensionDelegate.swift */; };
 		8A84D9461F2585440098C949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A84D9451F2585440098C949 /* Assets.xcassets */; };
 		8A84D94A1F2585440098C949 /* WKFalldown.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 8A84D92C1F2585440098C949 /* WKFalldown.app */; };
-		8A84D9541F258DFD0098C949 /* horizontalLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A84D9531F258DFD0098C949 /* horizontalLine.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +71,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8A2568391F425F18000AE7FE /* horizontalLine2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horizontalLine2.png; sourceTree = "<group>"; };
-		8A6A6D0C1F4A7A8D00656800 /* falldownBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = falldownBall.png; path = ../../../../Documents/falldownBall.png; sourceTree = "<group>"; };
+		8A5770301F51017400ED3327 /* falldownBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falldownBall.png; sourceTree = "<group>"; };
+		8A5770321F5103C100ED3327 /* horizontalLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horizontalLine.png; sourceTree = SOURCE_ROOT; };
 		8A84D90F1F25851D0098C949 /* Falldown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Falldown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A84D9121F25851D0098C949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A84D9141F25851D0098C949 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -95,7 +94,6 @@
 		8A84D9431F2585440098C949 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		8A84D9451F2585440098C949 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A84D9471F2585440098C949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A84D9531F258DFD0098C949 /* horizontalLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horizontalLine.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,9 +167,8 @@
 				8A84D93D1F2585440098C949 /* InterfaceController.swift */,
 				8A84D9411F2585440098C949 /* GameScene.swift */,
 				8A84D9431F2585440098C949 /* ExtensionDelegate.swift */,
-				8A6A6D0C1F4A7A8D00656800 /* falldownBall.png */,
-				8A84D9531F258DFD0098C949 /* horizontalLine.png */,
-				8A2568391F425F18000AE7FE /* horizontalLine2.png */,
+				8A5770301F51017400ED3327 /* falldownBall.png */,
+				8A5770321F5103C100ED3327 /* horizontalLine.png */,
 				8A84D9451F2585440098C949 /* Assets.xcassets */,
 				8A84D9471F2585440098C949 /* Info.plist */,
 			);
@@ -307,11 +304,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5770331F5103C100ED3327 /* horizontalLine.png in Resources */,
 				8A84D9461F2585440098C949 /* Assets.xcassets in Resources */,
-				8A84D9541F258DFD0098C949 /* horizontalLine.png in Resources */,
-				8A25683A1F425F18000AE7FE /* horizontalLine2.png in Resources */,
+				8A5770311F51017400ED3327 /* falldownBall.png in Resources */,
 				8A84D9401F2585440098C949 /* GameScene.sks in Resources */,
-				8A6A6D0D1F4A7A8D00656800 /* falldownBall.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
