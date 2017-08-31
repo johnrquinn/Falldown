@@ -38,7 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let bottomEdge = SKSpriteNode()
     
-    var gapWidth = 50
+    var gapWidth = 48
     
     var halfGap = 0
     
@@ -317,22 +317,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             score += 1
             scoreLabel.text = String(score)
             
-            // MAKE THE GAME HARDER AS SCORE INCREASES
-            
             switch score {
                 
             // CHANGE CASES BACK TO MAKE THE GAME LAST LONGER... NEED TO DETERMINE HOW LONG THE GAME should LAST
                 
+            // MAKE THE GAME HARDER AS SCORE INCREASES
+                
             case 0...10:
-                gapWidth = 50
+                gapWidth = 48
                 halfGap = gapWidth / 2
                 wait = SKAction.wait(forDuration: 0.7)
             case 11...20:
-                gapWidth = 50
+                gapWidth = 46
                 halfGap = gapWidth / 2
                 wait = SKAction.wait(forDuration: 0.7, withRange: 0.1)
             case 21...30:
-                gapWidth = 45
+                gapWidth = 44
                 halfGap = gapWidth / 2
                 wait = SKAction.wait(forDuration: 0.6, withRange: 0.1)
             case 31...1000:
@@ -340,7 +340,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 halfGap = gapWidth / 2
                 wait = SKAction.wait(forDuration: 0.5, withRange: 0.1)
             default:
-                gapWidth = 55
+                gapWidth = 48
                 halfGap = gapWidth / 2
                 
             }
