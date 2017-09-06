@@ -63,6 +63,15 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
     
     }
     
+    @IBAction func menuPressed() {
+        // RETURN PLAYER TO MENU
+        
+        UserDefaults.standard.set(self.game.score, forKey: "LATESTSCORE")
+        
+        WKInterfaceController.reloadRootControllers(withNames: ["Menu"], contexts: ["Menu"])
+        
+    }
+    
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
@@ -72,5 +81,5 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
+    
 }

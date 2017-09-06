@@ -9,28 +9,32 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Menu-->
         <scene sceneID="iHM-SG-FVG">
             <objects>
-                <controller id="nmH-y1-yrD">
+                <controller identifier="Menu" id="nmH-y1-yrD" customClass="Menu" customModule="WKFalldown_Extension">
                     <items>
                         <imageView height="52" alignment="left" image="Falldown Logo" id="j7n-KQ-CY2"/>
                         <label alignment="left" text="High Score:" id="7ZA-Zx-V0O"/>
                         <label alignment="left" text="Latest Score:" id="FNJ-80-7Dt"/>
-                        <button width="1" alignment="left" title="Play" id="ubD-ud-NOz">
+                        <button width="1" height="48" alignment="left" title="Play" id="ubD-ud-NOz">
                             <connections>
-                                <segue destination="AgC-eL-Hgc" kind="modal" id="pPH-Kt-JcI"/>
+                                <action selector="playButtonPressed" destination="nmH-y1-yrD" id="tPg-Gf-r5n"/>
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="highScoreLabel" destination="7ZA-Zx-V0O" id="FLE-f5-FI0"/>
+                        <outlet property="latestScoreLabel" destination="FNJ-80-7Dt" id="AYm-pq-YWj"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-196" y="31"/>
+            <point key="canvasLocation" x="-198" y="28"/>
         </scene>
-        <!--Interface Controller-->
+        <!--Game-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WKFalldown" customModuleProvider="target">
+                <controller identifier="Game" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WKFalldown" customModuleProvider="target">
                     <items>
                         <spriteKitScene alignment="left" id="ARY-87-yzO">
                             <gestureRecognizers>
@@ -39,10 +43,18 @@
                                         <action selector="handleSingleTap:" destination="AgC-eL-Hgc" id="5jk-oi-5mH"/>
                                     </connections>
                                 </tapGestureRecognizer>
-                                <longPressGestureRecognizer id="9S3-sk-qto"/>
                             </gestureRecognizers>
                         </spriteKitScene>
                     </items>
+                    <menu key="menu" id="JLG-HN-6Qq">
+                        <items>
+                            <menuItem title="Menu" image="menuIcon" id="lBG-1A-kax">
+                                <connections>
+                                    <action selector="menuPressed" destination="AgC-eL-Hgc" id="btY-3i-CYl"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="skInterface" destination="ARY-87-yzO" id="iyl-F5-qDA"/>
                     </connections>

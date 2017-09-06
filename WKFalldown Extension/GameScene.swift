@@ -24,6 +24,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var highScore = UserDefaults.standard.integer(forKey: "HIGHSCORE")
     
+    var latestScore = UserDefaults.standard.integer(forKey: "LATESTSCORE")
+    
     let moveUp = SKAction.moveBy(x: 0, y:600, duration:5.0)
     
     var gameOver = false
@@ -64,9 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setUpGame() {
         
-        // MAKE MENU THE FIRST VC THEN POP THE GAME ON TOP
-        
-        // TO DO: add scrolling background, update sprites for lines, add startup menu, fix spawn speed change when score goes up
+        // TODO: update sprites for lines, add app icon, fix delays in line spawning at 10-20-30, make the game cover the clock, make the game go to menu if the user opens the app?, update applicationWillResignActive in ExtensionDelegate
         
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
@@ -78,36 +78,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.removeAllChildren()
         self.removeAllActions()
         
-        /* THIS CODE MANAGES THE BACKGROUND IN PGE, NEEDS TAILORING OBVIOUSLY
- 
-         let bgTexture = SKTexture(imageNamed: "bg.png")
- 
-         let moveBGAnimation = SKAction.move(by: CGVector(dx: -bgTexture.size().width, dy: 0), duration: 7)
-         let shiftBGAnimation = SKAction.move(by: CGVector(dx: bgTexture.size().width, dy: 0), duration: 0)
-         let moveBGForever = SKAction.repeatForever(SKAction.sequence([moveBGAnimation, shiftBGAnimation]))
- 
-         var i: CGFloat = 0
- 
-         while i < 3 {
- 
-         bg = SKSpriteNode(texture: bgTexture)
- 
-         bg.position = CGPoint(x: bgTexture.size().width * i, y: self.frame.midY)
- 
-         bg.size.height = self.frame.height
- 
-         bg.run(moveBGForever)
- 
-         bg.zPosition = -2
- 
-         self.addChild(bg)
- 
-         i += 1
- 
-         }
- 
-        */
- 
         // SET UP THE BALL
         
         let ballTexture = SKTexture(imageNamed: "falldownBall.png")
@@ -257,6 +227,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         
+        // MARK: COLLISION DETECTION
+        
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
         
@@ -291,11 +263,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameOverScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 15)
             highScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY - 20)
             
+            UserDefaults.standard.set(score, forKey: "LATESTSCORE")
+            
             if score > highScore {
                 
                 saveHighScore()
                 
                 highScoreLabel.text = "New high score is \(score)."
+            
                 
             } else {
                 
@@ -346,6 +321,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             if score == 11 || score == 21 || score == 31 {
+                
+                // FIXME: THIS CAUSES THE LINES TO STOP SPAWNING FOR A NOTICEABLE PERIOD
+                
                 self.removeAllActions()
                 self.run(SKAction.repeatForever(createForever))
             }
@@ -382,6 +360,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func restartGame() {
         if gameOver == true {
+            self.ball.isPaused = true
             self.removeAllActions()
             self.removeAllChildren()
             
@@ -394,7 +373,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
-
+    
 
 func saveHighScore() {
     UserDefaults.standard.set(score, forKey: "HIGHSCORE")

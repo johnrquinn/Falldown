@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A277A671F578B4300E4A99D /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A277A661F578B4300E4A99D /* Menu.swift */; };
 		8A5770311F51017400ED3327 /* falldownBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5770301F51017400ED3327 /* falldownBall.png */; };
 		8A5770331F5103C100ED3327 /* horizontalLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5770321F5103C100ED3327 /* horizontalLine.png */; };
 		8A5770371F5121FC00ED3327 /* Falldown Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5770361F5121FC00ED3327 /* Falldown Logo.png */; };
@@ -27,6 +28,7 @@
 		8A84D9441F2585440098C949 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9431F2585440098C949 /* ExtensionDelegate.swift */; };
 		8A84D9461F2585440098C949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A84D9451F2585440098C949 /* Assets.xcassets */; };
 		8A84D94A1F2585440098C949 /* WKFalldown.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 8A84D92C1F2585440098C949 /* WKFalldown.app */; };
+		8AE445701F591C670004F12E /* menuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AE4456F1F591C670004F12E /* menuIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8A277A661F578B4300E4A99D /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		8A5770301F51017400ED3327 /* falldownBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falldownBall.png; sourceTree = "<group>"; };
 		8A5770321F5103C100ED3327 /* horizontalLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horizontalLine.png; sourceTree = SOURCE_ROOT; };
 		8A5770361F5121FC00ED3327 /* Falldown Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Falldown Logo.png"; sourceTree = SOURCE_ROOT; };
@@ -96,6 +99,7 @@
 		8A84D9431F2585440098C949 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		8A84D9451F2585440098C949 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A84D9471F2585440098C949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AE4456F1F591C670004F12E /* menuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,10 +169,12 @@
 		8A84D93C1F2585440098C949 /* WKFalldown Extension */ = {
 			isa = PBXGroup;
 			children = (
-				8A84D93F1F2585440098C949 /* GameScene.sks */,
 				8A84D93D1F2585440098C949 /* InterfaceController.swift */,
+				8A84D93F1F2585440098C949 /* GameScene.sks */,
 				8A84D9411F2585440098C949 /* GameScene.swift */,
+				8A277A661F578B4300E4A99D /* Menu.swift */,
 				8A84D9431F2585440098C949 /* ExtensionDelegate.swift */,
+				8AE4456F1F591C670004F12E /* menuIcon.png */,
 				8A5770361F5121FC00ED3327 /* Falldown Logo.png */,
 				8A5770301F51017400ED3327 /* falldownBall.png */,
 				8A5770321F5103C100ED3327 /* horizontalLine.png */,
@@ -258,6 +264,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = S96227SEG6;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -308,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A5770331F5103C100ED3327 /* horizontalLine.png in Resources */,
+				8AE445701F591C670004F12E /* menuIcon.png in Resources */,
 				8A84D9461F2585440098C949 /* Assets.xcassets in Resources */,
 				8A5770371F5121FC00ED3327 /* Falldown Logo.png in Resources */,
 				8A5770311F51017400ED3327 /* falldownBall.png in Resources */,
@@ -334,6 +346,7 @@
 			files = (
 				8A84D9421F2585440098C949 /* GameScene.swift in Sources */,
 				8A84D93E1F2585440098C949 /* InterfaceController.swift in Sources */,
+				8A277A671F578B4300E4A99D /* Menu.swift in Sources */,
 				8A84D9441F2585440098C949 /* ExtensionDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
