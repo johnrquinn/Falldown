@@ -66,7 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setUpGame() {
         
-        // TODO: update sprites for lines, add app icon, fix delays in line spawning at 10-20-30, make the game cover the clock, make the game go to menu if the user opens the app?, update applicationWillResignActive in ExtensionDelegate
+        // TODO: update sprites for lines, add app icon, make the game cover the clock, make the game go to menu if the user opens the app?
         
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
@@ -179,7 +179,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
         createForever = SKAction.sequence([wait, create])
         
-        self.run(SKAction.repeatForever(createForever))
+        // MARK: QUESTION: why does changing this from "wait, create" to "create, wait" screw it up so badly?
+        
+        self.run(SKAction.repeatForever(createForever), withKey: "createForever")
         
     }
     
@@ -284,13 +286,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(highScoreLabel)
             } // this is copied from PGE, was necessary for preventing crashes when the game ends. not sure if it's necessary here
             
+            if score == 11 || score == 21 || score == 31 {
+                
+                self.run(SKAction.repeatForever(createForever), withKey: "createForever")
+
+            }
+            
         }
 
         if (firstBody.categoryBitMask == 1 && secondBody.categoryBitMask == 16) {
             // if ball hit gap
             
-            score += 1
-            scoreLabel.text = String(score)
+            if gameOver == false {
+                score += 1
+                scoreLabel.text = String(score)
+            }
             
             switch score {
                 
@@ -318,14 +328,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 gapWidth = 48
                 halfGap = gapWidth / 2
                 
-            }
-            
-            if score == 11 || score == 21 || score == 31 {
-                
-                // FIXME: THIS CAUSES THE LINES TO STOP SPAWNING FOR A NOTICEABLE PERIOD
-                
-                self.removeAllActions()
-                self.run(SKAction.repeatForever(createForever))
             }
             
         }
