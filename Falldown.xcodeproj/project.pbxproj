@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		8A277A671F578B4300E4A99D /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A277A661F578B4300E4A99D /* Menu.swift */; };
 		8A5770311F51017400ED3327 /* falldownBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5770301F51017400ED3327 /* falldownBall.png */; };
-		8A5770331F5103C100ED3327 /* horizontalLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5770321F5103C100ED3327 /* horizontalLine.png */; };
-		8A5770371F5121FC00ED3327 /* Falldown Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5770361F5121FC00ED3327 /* Falldown Logo.png */; };
+		8A6E116D1F60DFFE00002479 /* Falldown Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E116C1F60DFFE00002479 /* Falldown Logo.png */; };
+		8A6E116F1F60E0AD00002479 /* horizontalLine.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E116E1F60E0AD00002479 /* horizontalLine.png */; };
+		8A6E11711F60E6E500002479 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E11701F60E6E500002479 /* bg.png */; };
 		8A84D9131F25851D0098C949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A84D9121F25851D0098C949 /* AppDelegate.swift */; };
 		8A84D9151F25851D0098C949 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8A84D9141F25851D0098C949 /* GameScene.sks */; };
 		8A84D9171F25851D0098C949 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8A84D9161F25851D0098C949 /* Actions.sks */; };
@@ -76,8 +77,9 @@
 /* Begin PBXFileReference section */
 		8A277A661F578B4300E4A99D /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		8A5770301F51017400ED3327 /* falldownBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = falldownBall.png; sourceTree = "<group>"; };
-		8A5770321F5103C100ED3327 /* horizontalLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horizontalLine.png; sourceTree = SOURCE_ROOT; };
-		8A5770361F5121FC00ED3327 /* Falldown Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Falldown Logo.png"; sourceTree = SOURCE_ROOT; };
+		8A6E116C1F60DFFE00002479 /* Falldown Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Falldown Logo.png"; sourceTree = "<group>"; };
+		8A6E116E1F60E0AD00002479 /* horizontalLine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = horizontalLine.png; sourceTree = "<group>"; };
+		8A6E11701F60E6E500002479 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		8A84D90F1F25851D0098C949 /* Falldown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Falldown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A84D9121F25851D0098C949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A84D9141F25851D0098C949 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -169,15 +171,16 @@
 		8A84D93C1F2585440098C949 /* WKFalldown Extension */ = {
 			isa = PBXGroup;
 			children = (
+				8A6E11701F60E6E500002479 /* bg.png */,
 				8A84D93D1F2585440098C949 /* InterfaceController.swift */,
 				8A84D93F1F2585440098C949 /* GameScene.sks */,
 				8A84D9411F2585440098C949 /* GameScene.swift */,
 				8A277A661F578B4300E4A99D /* Menu.swift */,
 				8A84D9431F2585440098C949 /* ExtensionDelegate.swift */,
 				8AE4456F1F591C670004F12E /* menuIcon.png */,
-				8A5770361F5121FC00ED3327 /* Falldown Logo.png */,
+				8A6E116E1F60E0AD00002479 /* horizontalLine.png */,
 				8A5770301F51017400ED3327 /* falldownBall.png */,
-				8A5770321F5103C100ED3327 /* horizontalLine.png */,
+				8A6E116C1F60DFFE00002479 /* Falldown Logo.png */,
 				8A84D9451F2585440098C949 /* Assets.xcassets */,
 				8A84D9471F2585440098C949 /* Info.plist */,
 			);
@@ -247,12 +250,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Dilldrup LLC";
 				TargetAttributes = {
 					8A84D90E1F25851D0098C949 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = S96227SEG6;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					8A84D92B1F2585440098C949 = {
@@ -263,6 +267,7 @@
 					8A84D9371F2585440098C949 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = S96227SEG6;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -318,11 +323,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A5770331F5103C100ED3327 /* horizontalLine.png in Resources */,
 				8AE445701F591C670004F12E /* menuIcon.png in Resources */,
+				8A6E116F1F60E0AD00002479 /* horizontalLine.png in Resources */,
+				8A6E11711F60E6E500002479 /* bg.png in Resources */,
 				8A84D9461F2585440098C949 /* Assets.xcassets in Resources */,
-				8A5770371F5121FC00ED3327 /* Falldown Logo.png in Resources */,
 				8A5770311F51017400ED3327 /* falldownBall.png in Resources */,
+				8A6E116D1F60DFFE00002479 /* Falldown Logo.png in Resources */,
 				8A84D9401F2585440098C949 /* GameScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,7 +410,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -412,7 +420,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -435,7 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -454,7 +466,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -462,7 +476,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -479,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -496,7 +514,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dilldrup.Falldown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -509,7 +528,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dilldrup.Falldown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -524,7 +544,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
@@ -541,7 +562,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
@@ -561,7 +583,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
@@ -579,7 +601,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};

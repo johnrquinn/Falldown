@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nmH-y1-yrD">
-    <device id="watch38" orientation="portrait">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nmH-y1-yrD">
+    <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,12 +14,13 @@
             <objects>
                 <controller identifier="Menu" id="nmH-y1-yrD" customClass="Menu" customModule="WKFalldown_Extension">
                     <items>
-                        <imageView height="52" alignment="left" image="Falldown Logo" id="j7n-KQ-CY2"/>
+                        <imageView width="1" height="52" alignment="center" image="Falldown Logo" contentMode="scaleAspectFit" id="j7n-KQ-CY2"/>
                         <label alignment="left" text="High Score:" id="7ZA-Zx-V0O"/>
                         <label alignment="left" text="Latest Score:" id="FNJ-80-7Dt"/>
                         <button width="1" height="48" alignment="left" title="Play" id="ubD-ud-NOz">
                             <connections>
                                 <action selector="playButtonPressed" destination="nmH-y1-yrD" id="tPg-Gf-r5n"/>
+                                <segue destination="AgC-eL-Hgc" kind="modal" id="ZYU-WN-bCv"/>
                             </connections>
                         </button>
                     </items>
@@ -31,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="-198" y="28"/>
         </scene>
-        <!--Game-->
+        <!--                                                  -->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="Game" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WKFalldown" customModuleProvider="target">
+                <controller identifier="Game" title="                                                  " id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WKFalldown" customModuleProvider="target">
                     <items>
                         <spriteKitScene alignment="left" id="ARY-87-yzO">
                             <gestureRecognizers>

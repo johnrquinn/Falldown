@@ -44,6 +44,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var halfGap = 0
     
+    var bg = SKSpriteNode()
+    
     var scoreLabel = SKLabelNode()
     
     var gameOverLabel = SKLabelNode()
@@ -66,7 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setUpGame() {
         
-        // TODO: update sprites for lines, add app icon, make the game cover the clock, make the game go to menu if the user opens the app?
+        // TODO: add app icon, make the game go to menu if the user opens the app?, fix background spawning
         
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
@@ -82,11 +84,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let ballTexture = SKTexture(imageNamed: "falldownBall.png")
         ball = SKSpriteNode(texture: ballTexture)
- 
+     
         ball.physicsBody = SKPhysicsBody(circleOfRadius: 20)
         ball.physicsBody!.categoryBitMask = ColliderType.Ball.rawValue
         ball.physicsBody!.collisionBitMask = ColliderType.Line.rawValue | ColliderType.Edge.rawValue
         ball.physicsBody!.contactTestBitMask = ColliderType.GameOver.rawValue | ColliderType.Gap.rawValue | ColliderType.Line.rawValue
+        
+        ball.physicsBody!.allowsRotation = false
         
         ball.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 150)
         
@@ -138,6 +142,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(rightEdge)
         
+        // SET UP THE BACKGROUND
+        
+        //* TODO: figure out why top part of screen isn't covered when game starts
+        
+        let bgTexture = SKTexture(imageNamed: "bg.png")
+        
+        let moveBGAnimation = SKAction.move(by: CGVector(dx: 0, dy: bgTexture.size().height), duration: 11)
+        let shiftBGAnimation = SKAction.move(by: CGVector(dx: 0, dy: -bgTexture.size().height), duration: 0)
+        
+        let moveBGForever = SKAction.repeatForever(SKAction.sequence([moveBGAnimation, shiftBGAnimation]))
+        
+        var i: CGFloat = 0
+        
+        while i < 3 {
+            
+            bg = SKSpriteNode(texture: bgTexture)
+            
+            bg.position = CGPoint(x: self.frame.midX, y: -bgTexture.size().height * i)
+            
+            bg.size.width = self.frame.width
+            
+            bg.run(moveBGForever)
+            
+            bg.zPosition = -2
+            
+            self.addChild(bg)
+            
+            i += 1
+            
+        }
+        
         // SET UP THE BOTTOM EDGE
         
         bottomEdge.alpha = 0
@@ -156,10 +191,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // SET UP THE SCORE LABEL
         
-        scoreLabel.position = CGPoint(x: self.frame.maxX - 50, y: self.frame.maxY - 50)
+        scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
         
-        scoreLabel.fontName = "Helvetica"
-        scoreLabel.fontSize = 30
+        scoreLabel.position = CGPoint(x: self.frame.maxX - 5, y: self.frame.maxY - 51)
+        
+        scoreLabel.fontName = "Helvetica Bold"
+        scoreLabel.fontSize = 36
         scoreLabel.zPosition = 1
         
         scoreLabel.text = String(score)
@@ -247,23 +284,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameOver = true
             
             gameOverLabel.fontName = "Helvetica"
-            gameOverLabel.fontSize = 30
+            gameOverLabel.fontSize = 40
             gameOverLabel.zPosition = 1
 
             highScoreLabel.fontName = "Helvetica"
-            highScoreLabel.fontSize = 30
+            highScoreLabel.fontSize = 40
             highScoreLabel.zPosition = 1
             
             gameOverScoreLabel.fontName = "Helvetica"
-            gameOverScoreLabel.fontSize = 30
+            gameOverScoreLabel.fontSize = 40
             gameOverScoreLabel.zPosition = 1
             
             gameOverLabel.text = "Game Over!"
             gameOverScoreLabel.text = "You scored \(score)."
             
-            gameOverLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 50)
+            gameOverLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 55)
             gameOverScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 15)
-            highScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY - 20)
+            highScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY - 25)
             
             UserDefaults.standard.set(score, forKey: "LATESTSCORE")
             
@@ -303,8 +340,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             switch score {
-                
-            // CHANGE CASES BACK TO MAKE THE GAME LAST LONGER... NEED TO DETERMINE HOW LONG THE GAME should LAST
                 
             // MAKE THE GAME HARDER AS SCORE INCREASES
                 

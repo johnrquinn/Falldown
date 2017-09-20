@@ -35,7 +35,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         
         UserDefaults.standard.set(score, forKey: "LATESTSCORE")
         
-        // CAN'T FIGURE OUT HOW TO PAUSE THE LINES...
+        // TODO: SOMEHOW GET ALL OBJECTS ON SCREEN AND PAUSE THEM
+        
         // self.scene.ball.isPaused = true
         // self.scene.removeAllActions()
         

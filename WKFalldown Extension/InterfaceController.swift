@@ -44,7 +44,7 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
     }
     
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
-        
+               
         if rotationalDelta > 0 {
             game.moveBallRight()
             
@@ -75,6 +75,9 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        
+        crownSequencer.delegate = self
+        crownSequencer.focus()
     }
     
     override func didDeactivate() {
