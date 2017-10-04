@@ -68,7 +68,7 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         
         UserDefaults.standard.set(self.game.score, forKey: "LATESTSCORE")
         
-        WKInterfaceController.reloadRootControllers(withNames: ["Menu"], contexts: ["Menu"])
+        WKInterfaceController.reloadRootPageControllers(withNames:["Menu"], contexts: ["Menu"], orientation: WKPageOrientation(rawValue: kVerticalPositionType)!, pageIndex: 0)
         
     }
     

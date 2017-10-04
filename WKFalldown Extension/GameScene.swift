@@ -54,6 +54,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var highScoreLabel = SKLabelNode()
     
+    var gameOverScoreInstructions = SKLabelNode()
+    
     var wait = SKAction()
     
     var createForever = SKAction()
@@ -68,7 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setUpGame() {
         
-        // TODO: add app icon, make the game go to menu if the user opens the app?, fix background spawning
+        // TODO: add app icon, background image on menu, fix background spawning, fix removing lines and gaps when they hit gameovertest, store scores on external server to show leaderboard
         
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
@@ -76,6 +78,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gapWidth = 55
         
         gameOver = false
+        
+        scene!.isPaused = false
         
         self.removeAllChildren()
         self.removeAllActions()
@@ -105,7 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameOverTest.physicsBody!.isDynamic = false
         
         gameOverTest.physicsBody!.categoryBitMask = ColliderType.GameOver.rawValue
-        gameOverTest.physicsBody!.contactTestBitMask = ColliderType.Ball.rawValue | ColliderType.Line.rawValue
+        gameOverTest.physicsBody!.contactTestBitMask = ColliderType.Ball.rawValue | ColliderType.Line.rawValue | ColliderType.Gap.rawValue
         
         gameOverTest.position = CGPoint(x: self.frame.midX, y: self.frame.maxY + 20)
         
@@ -122,7 +126,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         leftEdge.physicsBody!.categoryBitMask = ColliderType.Edge.rawValue
         leftEdge.physicsBody!.collisionBitMask = ColliderType.Ball.rawValue
         
-        leftEdge.position = CGPoint(x: self.frame.minX + 1, y: self.frame.midY)
+        leftEdge.position = CGPoint(x: self.frame.minX, y: self.frame.midY)
         
         self.addChild(leftEdge)
         
@@ -138,7 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rightEdge.physicsBody!.categoryBitMask = ColliderType.Edge.rawValue
         rightEdge.physicsBody!.collisionBitMask = ColliderType.Ball.rawValue
         
-        rightEdge.position = CGPoint(x: self.frame.maxX - 1, y: self.frame.midY)
+        rightEdge.position = CGPoint(x: self.frame.maxX, y: self.frame.midY)
         
         self.addChild(rightEdge)
         
@@ -283,24 +287,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // if ball hit GameOverTest
             gameOver = true
             
-            gameOverLabel.fontName = "Helvetica"
-            gameOverLabel.fontSize = 40
+            scene!.isPaused = true
+            
+            gameOverLabel.fontName = "Helvetica Bold"
+            gameOverLabel.fontSize = 36
             gameOverLabel.zPosition = 1
 
             highScoreLabel.fontName = "Helvetica"
-            highScoreLabel.fontSize = 40
+            highScoreLabel.fontSize = 36
             highScoreLabel.zPosition = 1
             
             gameOverScoreLabel.fontName = "Helvetica"
-            gameOverScoreLabel.fontSize = 40
+            gameOverScoreLabel.fontSize = 36
             gameOverScoreLabel.zPosition = 1
+            
+            gameOverScoreInstructions.fontName = "Helvetica"
+            gameOverScoreInstructions.fontSize = 36
+            gameOverScoreInstructions.zPosition = 1
             
             gameOverLabel.text = "Game Over!"
             gameOverScoreLabel.text = "You scored \(score)."
+            gameOverScoreInstructions.text = "Tap to play again."
             
-            gameOverLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 55)
-            gameOverScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 15)
-            highScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY - 25)
+            gameOverLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 80)
+            gameOverScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 20)
+            highScoreLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY - 20)
+            gameOverScoreInstructions.position = CGPoint(x: self.frame.midX, y: self.frame.midY - 60)
             
             UserDefaults.standard.set(score, forKey: "LATESTSCORE")
             
@@ -308,7 +320,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 saveHighScore()
                 
-                highScoreLabel.text = "New high score is \(score)."
+                highScoreLabel.fontSize = 26
+                
+                highScoreLabel.text = "Your new high score is \(score)!"
             
                 
             } else {
@@ -321,7 +335,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.addChild(gameOverLabel)
                 self.addChild(gameOverScoreLabel)
                 self.addChild(highScoreLabel)
-            } // this is copied from PGE, was necessary for preventing crashes when the game ends. not sure if it's necessary here
+                self.addChild(gameOverScoreInstructions)
+            }
             
             if score == 11 || score == 21 || score == 31 {
                 
@@ -329,6 +344,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
             }
             
+        }
+        
+        if (firstBody.categoryBitMask == 2 && secondBody.categoryBitMask == 4 ) { // FIXME: THIS DOESN'T SEEM TO BE WORKING
+            // if line hit game over test
+            print("removing line")
+            contact.bodyA.node?.removeFromParent()
+        }
+        
+        if (firstBody.categoryBitMask == 4 && secondBody.categoryBitMask == 16 ) {
+            // if gap hit game over test
+            print("removing gap")
+            contact.bodyB.node?.removeFromParent()
         }
 
         if (firstBody.categoryBitMask == 1 && secondBody.categoryBitMask == 16) {
@@ -367,17 +394,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
-            
-            if (firstBody.categoryBitMask == 2 && secondBody.categoryBitMask == 4 ) {
-                // if line hit game over test
-                contact.bodyA.node?.removeFromParent()
-            }
-            
-            if (firstBody.categoryBitMask == 4 && secondBody.categoryBitMask == 16 ) {
-                // if gap hit game over test
-                contact.bodyB.node?.removeFromParent()
-            }
-        
     }
     
     func moveBallLeft() {
@@ -397,7 +413,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func restartGame() {
         if gameOver == true {
-            self.ball.isPaused = true
             self.removeAllActions()
             self.removeAllChildren()
             
