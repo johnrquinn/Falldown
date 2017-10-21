@@ -70,7 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setUpGame() {
         
-        // TODO: add app icon, background image on menu, fix background spawning, fix removing lines and gaps when they hit gameovertest, store scores on external server to show leaderboard
+        // TODO: background image on menu, image for play button, fix background spawning, fix removing lines and gaps when they hit gameovertest, store scores on external server to show leaderboard
         
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
@@ -346,13 +346,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
-        if (firstBody.categoryBitMask == 2 && secondBody.categoryBitMask == 4 ) { // FIXME: THIS DOESN'T SEEM TO BE WORKING
+        if (firstBody.categoryBitMask == 2 && secondBody.categoryBitMask == 4) { // FIXME: THIS DOESN'T SEEM TO BE WORKING
             // if line hit game over test
             print("removing line")
             contact.bodyA.node?.removeFromParent()
         }
         
-        if (firstBody.categoryBitMask == 4 && secondBody.categoryBitMask == 16 ) {
+        if (firstBody.categoryBitMask == 4 && secondBody.categoryBitMask == 16) {
             // if gap hit game over test
             print("removing gap")
             contact.bodyB.node?.removeFromParent()

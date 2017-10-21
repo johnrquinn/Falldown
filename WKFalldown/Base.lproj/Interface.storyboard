@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nmH-y1-yrD">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nmH-y1-yrD">
     <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
     </dependencies>
     <scenes>
         <!--Menu-->
         <scene sceneID="iHM-SG-FVG">
             <objects>
-                <controller identifier="Menu" id="nmH-y1-yrD" customClass="Menu" customModule="WKFalldown_Extension">
+                <controller identifier="Menu" backgroundImage="bg" contentMode="scaleAspectFill" fullScreen="YES" id="nmH-y1-yrD" customClass="Menu" customModule="WKFalldown_Extension">
                     <items>
                         <imageView width="1" height="52" alignment="center" image="Falldown Logo" contentMode="scaleAspectFit" id="j7n-KQ-CY2"/>
                         <label alignment="left" text="High Score:" id="7ZA-Zx-V0O"/>
@@ -35,7 +35,7 @@
         <!--                                                  -->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="Game" title="                                                  " id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WKFalldown" customModuleProvider="target">
+                <controller identifier="Game" title="                                                  " fullScreen="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WKFalldown" customModuleProvider="target">
                     <items>
                         <spriteKitScene alignment="left" id="ARY-87-yzO">
                             <gestureRecognizers>
@@ -61,7 +61,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="85" y="31"/>
+            <point key="canvasLocation" x="85" y="28"/>
         </scene>
     </scenes>
 </document>
