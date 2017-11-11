@@ -38,7 +38,7 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
             crownSequencer.focus()
             
             // Use a value that will maintain a consistent frame rate
-            self.skInterface.preferredFramesPerSecond = 30
+            self.skInterface.preferredFramesPerSecond = 26
             
         }
     }

@@ -22,8 +22,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidBecomeActive() {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        sleep(2)
+        
         if scene.gameOver == false {
-            let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
+            let when = DispatchTime.now() + .seconds(2) // change 2 to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when) {
                 self.scene.isPaused = false
             }
@@ -35,7 +37,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, etc.
         
-        scene.isPaused = true
+        self.scene.isPaused = true
         
     }
 

@@ -70,7 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setUpGame() {
         
-        // TODO: background image on menu, image for play button, fix background spawning, fix removing lines and gaps when they hit gameovertest, store scores on external server to show leaderboard
+        // TODO: background image on menu, image for play button, improve difficulty (BETA TEST), store scores on external server to show leaderboard, improve lifecycle (WHEN APP RETURNS TO FOREGROUND, VISUALLY COUNT DOWN FROM 3), TAP TO PAUSE THE GAME
         
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
@@ -148,11 +148,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // SET UP THE BACKGROUND
         
-        //* TODO: figure out why top part of screen isn't covered when game starts
-        
         let bgTexture = SKTexture(imageNamed: "bg.png")
         
-        let moveBGAnimation = SKAction.move(by: CGVector(dx: 0, dy: bgTexture.size().height), duration: 11)
+        let moveBGAnimation = SKAction.move(by: CGVector(dx: 0, dy: bgTexture.size().height), duration: 10)
         let shiftBGAnimation = SKAction.move(by: CGVector(dx: 0, dy: -bgTexture.size().height), duration: 0)
         
         let moveBGForever = SKAction.repeatForever(SKAction.sequence([moveBGAnimation, shiftBGAnimation]))
@@ -163,7 +161,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             bg = SKSpriteNode(texture: bgTexture)
             
-            bg.position = CGPoint(x: self.frame.midX, y: -bgTexture.size().height * i)
+            bg.position = CGPoint(x: self.frame.midX, y: -bgTexture.size().height * i + 35)
             
             bg.size.width = self.frame.width
             
@@ -285,6 +283,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if (firstBody.categoryBitMask == 1 && secondBody.categoryBitMask == 4) {
             // if ball hit GameOverTest
+            print("game over")
+            
             gameOver = true
             
             scene!.isPaused = true
@@ -346,6 +346,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
+        /*  I CAN'T FIGURE OUT WHY THIS DOESN'T WORK... MAYBE IT'S NOT NECESSARY (FROM A PERFORMANCE PERSPECTIVE) BECAUSE THE NODES AREN'T BEING DISPLAYED ONSCREEN? -JRQ 11/10/2017
+        
         if (firstBody.categoryBitMask == 2 && secondBody.categoryBitMask == 4) { // FIXME: THIS DOESN'T SEEM TO BE WORKING
             // if line hit game over test
             print("removing line")
@@ -357,6 +359,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("removing gap")
             contact.bodyB.node?.removeFromParent()
         }
+ 
+     */
 
         if (firstBody.categoryBitMask == 1 && secondBody.categoryBitMask == 16) {
             // if ball hit gap
